@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{titolo}}</title>
+    </head>
+    
+    <body>
+        <nav>
+            <a href="{{url_for('home')}}">Home Page</a>
+            <a href="{{url_for('products')}}">Products</a>
+        </nav>
+    
+        {%block contenutoPagina%}{%endblock%}
+    </body>
+</html>

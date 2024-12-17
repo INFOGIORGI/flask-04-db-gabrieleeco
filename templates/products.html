@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+
+{%block contenutoPagina%}
+<table>
+    <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Supplier ID</th>
+        <th>Category ID</th>
+        <th>Unit</th>
+        <th>Price</th>
+    </tr>
+
+    {%for prodotto in prodotti%}
+    <tr>
+        <td>{{prodotto[0]}}</td>
+        <td>{{prodotti[1]}}</td>
+        <td>{{prodotti[2]}}</td>
+        <td>{{prodotti[3]}}</td>
+        <td>{{prodotti[4]}}</td>
+        <td>{{prodotti[5]}}</td>
+    </tr>
+    {%endfor%}
+</table>
+{%endblock%}
