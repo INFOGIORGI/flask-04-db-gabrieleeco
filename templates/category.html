@@ -1,9 +1,9 @@
-{%extends 'base.html'%}
-
+{extends 'base.html'}
 {%block contenutoPagina%}
+
 <table>
     <tr>
-        <th>Product ID</th>
+        <th>ProductID</th>
         <th>Product Name</th>
         <th>Supplier ID</th>
         <th>Category ID</th>
@@ -16,7 +16,7 @@
         <td>{{prodotto[0]}}</td>
         <td>{{prodotto[1]}}</td>
         <td>{{prodotto[2]}}</td>
-        <td><a href="{{url_for('category', categoryID = prodotto[3])}}">{{prodotto[3]}}</a></td>
+        <td>{{prodotto[3]}}</td>
         <td>{{prodotto[4]}}</td>
         <td>{{prodotto[5]}}</td>
     </tr>

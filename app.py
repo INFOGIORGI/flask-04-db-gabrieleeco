@@ -19,6 +19,16 @@ def products():
     query = "SELECT * FROM products"
     cursor.execute(query)
     prodotti = cursor.fetchall()
+    cursor.close()
     return render_template("products.html", titolo = "Products", prodotti = prodotti)
 
-app.run()
+@app.route("/category/<int:categoryID>")
+def category(categoryID):
+    cursor = mysql.connection.cursor()
+    query = ("SELECT * FROM products WHERE CategoryID = %s")
+    cursor.execute(query, (categoryID,))
+    prodottiCategoria = cursor.fetchall()
+    cursor.close()
+    return render_template("category.html", titolo = "Category" + str(categoryID), prodotti = prodottiCategoria)
+
+app.run(debug=True)
