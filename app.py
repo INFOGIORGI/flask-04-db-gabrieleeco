@@ -7,6 +7,7 @@ app.config["MYSQL_PORT"] = 53306
 app.config["MYSQL_DB"] = "w3schools"
 app.config["MYSQL_USER"] = "ospite"
 app.config["MYSQL_PASSWORD"] = "ospite"
+
 mysql = MySQL(app)
 
 @app.route("/")
@@ -25,10 +26,10 @@ def products():
 @app.route("/category/<int:categoryID>")
 def category(categoryID):
     cursor = mysql.connection.cursor()
-    query = ("SELECT * FROM products WHERE CategoryID = %s")
+    query = ("SELECT * FROM categories WHERE CategoryID=?") 
     cursor.execute(query, (categoryID,))
-    prodottiCategoria = cursor.fetchall()
+    elementi = cursor.fetchall()
     cursor.close()
-    return render_template("category.html", titolo = "Category" + str(categoryID), prodotti = prodottiCategoria)
+    return render_template("category.html", titolo = "Category" + str(categoryID), prodotti = elementi, category = categoryID)
 
 app.run(debug=True)
