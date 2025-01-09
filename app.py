@@ -26,7 +26,7 @@ def products():
 @app.route("/category/<int:categoryID>")
 def category(categoryID):
     cursor = mysql.connection.cursor()
-    query = ("SELECT * FROM categories WHERE CategoryID=?") 
+    query = ("SELECT * FROM categories WHERE CategoryID=%s") 
     cursor.execute(query, (categoryID,))
     elementi = cursor.fetchall()
     cursor.close()
